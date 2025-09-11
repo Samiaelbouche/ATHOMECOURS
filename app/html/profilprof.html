@@ -40,12 +40,12 @@
             <td><?= substr($d['heure_fin'],0,5) ?></td>
             <td><?= $d['actif'] ? 'Actif' : 'Inactif' ?></td>
             <td>
-                <form method="post" class="inline">
+                <form  action="../php/profilprof.php"method="post" class="inline">
                     <input type="hidden" name="action" value="toggle">
                     <input type="hidden" name="id" value="<?= $d['id'] ?>">
                     <button type="submit"><?= $d['actif'] ? 'Désactiver' : 'Activer' ?></button>
                 </form>
-                <form method="post" class="inline" onsubmit="return confirm('Supprimer ?')">
+                <form  action="../php/profilprof.php" method="post" class="inline" >
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="id" value="<?= $d['id'] ?>">
                     <button type="submit">Supprimer</button>
