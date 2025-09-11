@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+
+</head>
+<body>
+<h1> se connecter </h1>
+
+<form action="../php/connexion.php" method="post">
+    <h2>Se connecter</h2>
+
+    <label for="role">Je suis :</label>
+    <select id="role" name="role" required>
+        <option value="eleve">Élève</option>
+        <option value="professeur">Professeur</option>
+    </select><br><br>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="mot_de_passe">Mot de passe :</label>
+    <input type="password" id="mot_de_passe" name="mot_de_passe" required><br><br>
+
+    <button type="submit">Se connecter</button>
+</form>
