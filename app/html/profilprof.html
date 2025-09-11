@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profilprof</title>
+</head>
+<body>
+<div class="profile">
+    <h2>Bienvenue <?= htmlspecialchars($prof['prenom'].' '.$prof['nom']) ?></h2>
+    <p>Email : <?= htmlspecialchars($prof['email']) ?></p>
+</div>
+
+<?php if ($msg) echo "<p><b>$msg</b></p>"; ?>
+
+<div class="card">
+    <h3>Ajouter une disponibilité</h3>
+    <form  action="../php/profilprof.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="action" value="add">
+        Jour :
+        <select name="jour_semaine" required>
+            <option value="">-- Choisir --</option>
+            <?php foreach(['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] as $j): ?>
+            <option value="<?= $j ?>"><?= ucfirst($j) ?></option>
+            <?php endforeach; ?>
+        </select>
+        Début : <input type="time" name="heure_debut" required>
+        Fin : <input type="time" name="heure_fin" required>
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Mes disponibilités</h3>
+    <table>
+        <tr><th>Jour</th><th>Début</th><th>Fin</th><th>Statut</th><th>Actions</th></tr>
+        <?php foreach($dispos as $d): ?>
+        <tr>
+            <td><?= ucfirst($d['jour_semaine']) ?></td>
+            <td><?= substr($d['heure_debut'],0,5) ?></td>
+            <td><?= substr($d['heure_fin'],0,5) ?></td>
+            <td><?= $d['actif'] ? 'Actif' : 'Inactif' ?></td>
+            <td>
+                <form method="post" class="inline">
+                    <input type="hidden" name="action" value="toggle">
+                    <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                    <button type="submit"><?= $d['actif'] ? 'Désactiver' : 'Activer' ?></button>
+                </form>
+                <form method="post" class="inline" onsubmit="return confirm('Supprimer ?')">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="id" value="<?= $d['id'] ?>">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+
+</body>
+</html>
