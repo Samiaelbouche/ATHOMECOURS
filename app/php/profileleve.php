@@ -1,34 +1,29 @@
 <?php
-
 session_start();
-require_once __DIR__ . "/config.php";
-
+require_once __DIR__ . '/config.php';
 
 /** @var PDO $pdo */
 
-
-if (empty($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'eleves') {
-    header("Location: login.php");
+if (empty($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'eleve') {
+    header("Location: /php/connexion.php");
     exit;
 }
 
 $eleveId = (int)$_SESSION['user_id'];
 
-// Récup infos élève
+
 $stmt = $pdo->prepare("SELECT nom, prenom, email FROM eleves WHERE id = :id");
 $stmt->execute([":id" => $eleveId]);
 $eleve = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $msg = "";
 
-/* ------------------- RÉSERVATION D’UN COURS ------------------- */
 if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? "") === "reserver") {
     $dispoId     = (int)$_POST["dispo_id"];
     $dateChoisie = $_POST["date_cours"] ?? '';
     $lieu        = $_POST["lieu"] ?? 'en_ligne';
     $adresse     = $_POST["adresse_cours"] ?? null;
 
-    // Vérifier disponibilité choisie
     $stmt = $pdo->prepare("
         SELECT d.id, d.professeur_id, d.heure_debut,
                p.nom, p.prenom
@@ -40,9 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? "") === "reser
     $dispo = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($dispo && $dateChoisie) {
-
         $dateCours = $dateChoisie . " " . $dispo["heure_debut"];
-
 
         $stmt = $pdo->prepare("
             INSERT INTO cours (eleve_id, professeur_id, date_cours, duree_minutes, lieu, adresse_cours, statut)
@@ -62,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["action"] ?? "") === "reser
         $msg = " Créneau invalide.";
     }
 }
+
 
 $dispos = $pdo->query("
     SELECT d.id, d.jour_semaine, d.heure_debut, d.heure_fin,
@@ -84,3 +78,6 @@ $stmt = $pdo->prepare("
 ");
 $stmt->execute([":eid" => $eleveId]);
 $cours = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+include __DIR__ . "/../html/profileleveview.php";

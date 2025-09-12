@@ -62,4 +62,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 
-
+    header("Location: ../php/connexion.php");
+include_once "../html/inscriptioneleve.html";
