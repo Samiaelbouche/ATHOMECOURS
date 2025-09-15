@@ -68,7 +68,18 @@ CREATE TABLE IF NOT EXISTS disponibilites_prof (
     FOREIGN KEY (professeur_id) REFERENCES professeurs(id) ON DELETE CASCADE
 );
 
+ALTER TABLE professeurs ADD COLUMN statut ENUM('en_attente','valide','refuse') DEFAULT 'en_attente';
+ALTER TABLE eleves ADD COLUMN statut ENUM('en_attente','valide','refuse') DEFAULT 'en_attente';
 
+
+
+CREATE TABLE IF NOT EXISTS admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    mot_de_passe VARCHAR(255) NOT NULL
+    );
 
 INSERT INTO eleves
 (nom, prenom, email, mot_de_passe, date_naissance, adresse, ville, code_postal, telephone, niveau_scolaire, classe, etablissement, nom_parent, telephone_parent, email_parent, besoins_particuliers)
@@ -82,3 +93,5 @@ VALUES
 
 
 
+INSERT INTO admins (nom, prenom, email, mot_de_passe)
+VALUES ('Samiaelb', 'Admin', 'samia.elbouche@laposte.net', 'Samiaelb');
