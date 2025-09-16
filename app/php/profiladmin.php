@@ -1,9 +1,12 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/config.php';
 
 if (empty($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'admin') {
-    header("Location: login.php");
+    header("Location: /php/connexionController.php");
     exit;
 }
 
@@ -21,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->execute([":s" => $action, ":id" => $id]);
     }
 
-    header("Location: profil_admin.php");
+    header("Location: profiladmin.php");
     exit;
 }
 
@@ -31,43 +34,43 @@ $eleves = $pdo->query("SELECT * FROM eleves WHERE statut='en_attente'")->fetchAl
 <!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><title>Admin</title></head>
-<body>
-<h2>Professeurs en attente</h2>
-<table ">
-    <tr><th>Nom</th><th>Email</th><th>Action</th></tr>
-    <?php foreach ($profs as $p): ?>
-        <tr>
-            <td><?= htmlspecialchars($p['prenom']." ".$p['nom']) ?></td>
-            <td><?= htmlspecialchars($p['email']) ?></td>
-            <td>
-                <form method="post">
-                    <input type="hidden" name="id" value="<?= $p['id'] ?>">
-                    <input type="hidden" name="type" value="prof">
-                    <button type="submit" name="action" value="valide">Valider</button>
-                    <button type="submit" name="action" value="refuse">Refuser</button>
-                </form>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</table>
+    <body>
+        <h2>Professeurs en attente</h2>
+        <table ">
+            <tr><th>Nom</th><th>Email</th><th>Action</th></tr>
+            <?php foreach ($profs as $p): ?>
+                <tr>
+                    <td><?= htmlspecialchars($p['prenom']." ".$p['nom']) ?></td>
+                    <td><?= htmlspecialchars($p['email']) ?></td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" value="<?= $p['id'] ?>">
+                            <input type="hidden" name="type" value="prof">
+                            <button type="submit" name="action" value="valide">Valider</button>
+                            <button type="submit" name="action" value="refuse">Refuser</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
-<h2>Élèves en attente</h2>
-<table >
-    <tr><th>Nom</th><th>Email</th><th>Action</th></tr>
-    <?php foreach ($eleves as $e): ?>
-        <tr>
-            <td><?= htmlspecialchars($e['prenom']." ".$e['nom']) ?></td>
-            <td><?= htmlspecialchars($e['email']) ?></td>
-            <td>
-                <form method="post">
-                    <input type="hidden" name="id" value="<?= $e['id'] ?>">
-                    <input type="hidden" name="type" value="eleve">
-                    <button type="submit" name="action" value="valide">Valider</button>
-                    <button type="submit" name="action" value="refuse">Refuser</button>
-                </form>
-            </td>
-        </tr>
-    <?php endforeach; ?>
-</table>
-</body>
+        <h2>Élèves en attente</h2>
+        <table >
+            <tr><th>Nom</th><th>Email</th><th>Action</th></tr>
+            <?php foreach ($eleves as $e): ?>
+                <tr>
+                    <td><?= htmlspecialchars($e['prenom']." ".$e['nom']) ?></td>
+                    <td><?= htmlspecialchars($e['email']) ?></td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="id" value="<?= $e['id'] ?>">
+                            <input type="hidden" name="type" value="eleve">
+                            <button type="submit" name="action" value="valide">Valider</button>
+                            <button type="submit" name="action" value="refuse">Refuser</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </body>
 </html>

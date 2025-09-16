@@ -1,11 +1,14 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/config.php';
 
 /** @var PDO $pdo */
 
 if (empty($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'eleve') {
-    header("Location: /php/connexion.php");
+    header("Location: /php/connexionController.php");
     exit;
 }
 
@@ -80,4 +83,4 @@ $stmt->execute([":eid" => $eleveId]);
 $cours = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-include __DIR__ . "/../html/profileleveview.php";
+include __DIR__ . "/../views/profileleveview.php";

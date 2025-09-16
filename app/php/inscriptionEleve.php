@@ -1,8 +1,11 @@
 <?php
-//session_start();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 require_once __DIR__ . "/config.php";
-include_once "../html/inscriptioneleve.html";
+
 
 /** @var PDO $pdo */
 
@@ -24,8 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $telephone_parent = !empty($_POST["telephone_parent"]) ? $_POST["telephone_parent"] : null;
     $email_parent = !empty($_POST["email_parent"]) ? $_POST["email_parent"] : null;
     $besoins_particuliers = !empty($_POST["besoins_particuliers"]) ? $_POST["besoins_particuliers"] : null;
-
-
 
 
     $sql = "INSERT INTO eleves 
@@ -55,12 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ":besoins_particuliers" => $besoins_particuliers
         ]);
 
-        echo "<p > Élève ajouté avec succès !</p>";
+        $_SESSION["success"] = "Inscription élève réussie ! Vous pouvez maintenant vous connecter.";
+        header("Location: ../views/inscriptioneleveview.php");
+        exit;
     } catch (PDOException $e) {
-        echo "<p > Erreur lors de l'ajout : " . $e->getMessage() . "</p>";
-    };
-}
+        $_SESSION["error"] = "Erreur lors de l'inscription : " . $e->getMessage();
+        header("Location: ../views/inscriptioneleveview.php");
+        exit;}
 
-
-    header("Location: ../php/connexion.php");
-include_once "../html/inscriptioneleve.html";
+     }

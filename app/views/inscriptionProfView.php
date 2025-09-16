@@ -1,3 +1,12 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$error = $_SESSION["error"] ?? null;
+$success = $_SESSION["success"] ?? null;
+unset($_SESSION["error"], $_SESSION["success"]);
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -8,7 +17,13 @@
 </head>
 <body>
 <h1>Je suis professeur </h1>
+<?php if ($error): ?>
+    <p><?= htmlspecialchars($error) ?></p>
+<?php endif; ?>
 
+<?php if ($success): ?>
+    <p><?= htmlspecialchars($success) ?></p>
+<?php endif; ?>
 
 <form action="../php/inscriptionprof.php" method="post" enctype="multipart/form-data">
     <h2>Inscription d’un professeur</h2>

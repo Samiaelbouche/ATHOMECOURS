@@ -2,7 +2,7 @@
 
 session_start();
 require_once __DIR__ . "/config.php";
-include_once "../html/inscriptionprof.html";
+include_once "../views/inscriptionProfView.php";
 /** @var PDO $pdo */
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -71,5 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 }
-    //header("Location: ../php/connexion.php");
+    //header("Location: ../php/connexionController.php");
 

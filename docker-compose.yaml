@@ -5,13 +5,13 @@ services:
     ports:
       - "8080:80"
     environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html
+      - APACHE_DOCUMENT_ROOT=/var/www/views
       - DB_HOST=mysql
       - DB_NAME=database
       - DB_USER=user
       - DB_PASS=password
     volumes:
-      - ./app:/var/www/html
+      - ./app:/var/www/views
     depends_on:
       - mysql
     restart: unless-stopped

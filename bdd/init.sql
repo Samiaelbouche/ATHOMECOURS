@@ -94,4 +94,4 @@ VALUES
 
 
 INSERT INTO admins (nom, prenom, email, mot_de_passe)
-VALUES ('Samiaelb', 'Admin', 'samia.elbouche@laposte.net', 'Samiaelb');
+VALUES ('Samiaelb', 'Admin', 'samia.elbouche@laposte.net', '$2y$10$P/rM3zBje1Qq2PaE4GTLnOhlOO5.NS2e1.A71ApyDpnJPBqS/GL5O');

@@ -103,6 +103,6 @@ require_once __DIR__ . "/config.php";
         $stmt->execute([":pid" => $profId]);
         $cours = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        include_once "../html/profilprofview.php";
+        include_once "../views/profilprofview.php";
 
 

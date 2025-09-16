@@ -1,15 +1,30 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$error = $_SESSION["error"] ?? null;
+$success = $_SESSION["success"] ?? null;
+unset($_SESSION["error"], $_SESSION["success"]);
+?>
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <title>Inscription Élève</title>
 </head>
 <body>
-<h1>Je suis élèves </h1>
+<h1>Inscription Élève</h1>
+
+<?php if ($error): ?>
+    <p ><?= htmlspecialchars($error) ?></p>
+<?php endif; ?>
+
+<?php if ($success): ?>
+    <p><?= htmlspecialchars($success) ?></p>
+<?php endif; ?>
 
 
-<form action="../php/inscriptioneleve.php" method="POST">
+<form action="../php/inscriptionEleve.php" method="POST">
   <label for="nom">Nom :</label>
   <input type="text" id="nom" name="nom" required><br><br>
 
