@@ -12,28 +12,47 @@
         </div>
     </section>
 
+    <section class="about">
+        <h2>Qui sommes-nous ?</h2>
+        <div class="about-content">
+            <img src="../images/photoat.png" alt="Notre équipe">
+            <div class="about-text">
+                <p>
+                    Chez <strong>At Home Cours</strong>, nous sommes une équipe passionnée de professeurs de physique-chimie,
+                    dédiée à aider les élèves du collège au lycée à réussir et à s’épanouir dans leurs études.
+                </p>
+                <p>
+                    Nous proposons des cours <em>en ligne</em> et <em>à domicile</em> de Physique Chimie, adaptés au rythme et aux besoins de chacun.
+                    Notre pédagogie repose sur la clarté, la patience et des méthodes éprouvées pour rendre les sciences accessibles à tous.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
     <section class="cours">
         <h2>Nos cours</h2>
         <div class="cours-grid">
             <article class="cours-card">
-                <img src="images/cours-en-ligne.jpg" alt="Cours en ligne">
+                <img src="../images/images.jpeg" alt="Cours en ligne">
                 <h3>Cours en ligne</h3>
                 <p>Suivez vos cours de physique-chimie à distance avec nos professeurs, en direct ou en replay, où que vous soyez.</p>
-                <a href="noscours.php" class="btn">En savoir plus</a>
+                <a href="../views/noscours.php" class="btn">En savoir plus</a>
             </article>
 
             <article class="cours-card">
-                <img src="images/cours-domicile.jpg" alt="Cours à domicile">
+                <img src="../images/Orthopedagogue-rencontre-orthopedagogie-1.jpg" alt="Cours à domicile">
                 <h3>Cours à domicile</h3>
                 <p>Bénéficiez d’un accompagnement personnalisé chez vous, avec un professeur qualifié qui se déplace.</p>
-                <a href="cours-domicile.php" class="btn">En savoir plus</a>
+                <a href="../views/noscours.php" class="btn">En savoir plus</a>
             </article>
         </div>
     </section>
     <section class="about">
         <h2>Qui sommes-nous ?</h2>
         <div class="about-content">
-            <img src="images/qui-sommes-nous.jpg" alt="Notre équipe">
+            <img src="../images/photoat.png" alt="Notre équipe">
             <div class="about-text">
                 <p>
                     Chez <strong>At Home Cours</strong>, nous sommes une équipe passionnée de professeurs de physique-chimie,
@@ -55,7 +74,7 @@
         <h2>Nos professeurs</h2>
         <div class="prof-grid">
             <div class="prof-card">
-                <img src="images/.jpg" alt="Professeur">
+                <img src="" alt="Professeur">
                 <p><strong>nom prenom</strong></p>
             </div>
             <div class="prof-card">

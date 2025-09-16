@@ -11,33 +11,10 @@ include '../partial/header.php'; ?>
         </div>
     </section>
 
-
-
-    <!-- Article sur les cours en ligne -->
-    <section class="cours-type">
-        <h2>Cours en ligne</h2>
-        <article>
-            <h3>Avantages</h3>
-            <ul>
-                <li>Flexibilité : possibilité de suivre les cours où que vous soyez</li>
-                <li>Gain de temps : pas de déplacement</li>
-                <li>Accès à des supports numériques interactifs</li>
-                <li>Replays disponibles pour revoir le cours</li>
-            </ul>
-        </article>
-        <article>
-            <h3>Inconvénients</h3>
-            <ul>
-                <li>Nécessite une bonne connexion internet</li>
-                <li>Moins de contact humain qu’en présentiel</li>
-                <li>Peut être difficile pour les élèves qui manquent d’autonomie</li>
-            </ul>
-        </article>
-    </section>
-    <section class="how-it-works">
+    <section class="comment">
         <h2>Comment ça marche ?</h2>
-        <article class="how-card">
-            <img src="images/comment.jpg" alt="Étapes">
+        <article class="com">
+            <img src="../images/4d32927bbb6380c9d44ebea0ee9c6b133b4e96eb.jpg" alt="Étapes">
             <div>
                 <p>
                     Inscrivez-vous gratuitement sur notre plateforme, choisissez le type de cours qui vous convient
@@ -50,9 +27,10 @@ include '../partial/header.php'; ?>
             </div>
         </article>
     </section>
-    <section class="cours-type">
-        <img src="images/comment.jpg" alt="Étapes">
+    <section class="cours">
+
         <h2>Cours en ligne</h2>
+        <img src="../images/001484117_896x598_c.jpg" alt="Étapes">
         <article>
 
             <h3>Avantages</h3>
@@ -73,9 +51,10 @@ include '../partial/header.php'; ?>
         </article>
     </section>
 
-    <section class="cours-type">
-        <img src="images/comment.jpg" alt="Étapes">
+    <section class="cours">
+
         <h2>Cours à domicile</h2>
+        <img src="../images/cours-particulier-physique-chimie-2.jpg.webp" alt="Étapes">
         <article>
             <h3>Avantages</h3>
             <ul>
@@ -95,3 +74,5 @@ include '../partial/header.php'; ?>
     </section>
 
 </main>
+
+<?php include '../partial/footer.php'; ?>
