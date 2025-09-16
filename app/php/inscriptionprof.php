@@ -71,5 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 }
-    //header("Location: ../php/connexionController.php");
+    //header("Location: ../php/connexion.php");
 

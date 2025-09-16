@@ -31,7 +31,7 @@ unset($_SESSION["error"], $_SESSION["success"]); // on vide après affichage
         <p class="success"><?= htmlspecialchars($success) ?></p>
     <?php endif; ?>
 
-    <form action="../php/connexionController.php" method="post">
+    <form action="../php/connexion.php" method="post">
         <label for="role">Je suis :</label>
         <select id="role" name="role" required>
             <option value="eleve">Élève</option>

@@ -8,7 +8,7 @@ require_once __DIR__ . '/config.php';
 /** @var PDO $pdo */
 
 if (empty($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'eleve') {
-    header("Location: /php/connexionController.php");
+    header("Location: /php/connexion.php");
     exit;
 }
 

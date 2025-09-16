@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!isset($roles[$role])) {
         $_SESSION["error"] = "Rôle non reconnu !";
-        header("Location: /php/connexionController.php");
+        header("Location: /php/connexion.php");
         exit;
     }
 
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (password_verify($mot_de_passe, $user["mot_de_passe"])) {
             if ($role !== "admin" && ($user["statut"] ?? '') !== "valide") {
                 $_SESSION["error"] = "Votre compte est en attente de validation par l'administrateur.";
-                header("Location: ../php/connexionController.php");
+                header("Location: ../php/connexion.php");
                 exit;
             }
 
@@ -51,12 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         } else {
             $_SESSION["error"] = "Mot de passe incorrect.";
-            header("Location: ../php/connexionController.php");
+            header("Location: ../php/connexion.php");
             exit;
         }
     } else {
         $_SESSION["error"] = "Email introuvable pour le rôle sélectionné.";
-        header("Location: ../php/connexionController.php");
+        header("Location: ../php/connexion.php");
         exit;
     }
 }
