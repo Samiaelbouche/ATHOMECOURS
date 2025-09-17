@@ -81,15 +81,13 @@ CREATE TABLE IF NOT EXISTS admins (
     mot_de_passe VARCHAR(255) NOT NULL
     );
 
-INSERT INTO eleves
-(nom, prenom, email, mot_de_passe, date_naissance, adresse, ville, code_postal, telephone, niveau_scolaire, classe, etablissement, nom_parent, telephone_parent, email_parent, besoins_particuliers)
-VALUES
-    ('Dupont', 'Marie', 'marie.dupont@example.com', 'motdepasse123', '2008-05-12', '12 rue de la Paix', 'Paris', '75001', '0601020304', 'college', '5ème A', 'Collège Jean Moulin', 'Jean Dupont', '0605060708', 'parent.dupont@example.com', 'Allergie aux cacahuètes'),
-    ('Martin', 'Lucas', 'lucas.martin@example.com', 'motdepasse456', '2007-09-30', '45 avenue Victor Hugo', 'Lyon', '69003', '0612345678', 'college', '4ème B', 'Collège Victor Hugo', 'Claire Martin', '0611223344', 'parent.martin@example.com', NULL),
-    ('Bernard', 'Emma', 'emma.bernard@example.com', 'motdepasse789', '2006-03-15', '8 boulevard Saint-Germain', 'Paris', '75005', '0609876543', 'lycee', '2nde C', 'Lycée Louis-le-Grand', 'Paul Bernard', '0601122334', 'parent.bernard@example.com', 'Besoin d’un accompagnement en maths'),
-    ('Lefevre', 'Nathan', 'nathan.lefevre@example.com', 'motdepasse321', '2005-12-01', '23 rue Lafayette', 'Marseille', '13001', '0698765432', 'lycee', '1ère B', 'Lycée Thiers', 'Sophie Lefevre', '0699988776', 'parent.lefevre@example.com', NULL);
-
-
+CREATE TABLE IF NOT EXISTS password_resets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(150) NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    expiration DATETIME NOT NULL,
+    used TINYINT(1) DEFAULT 0
+    );
 
 
 

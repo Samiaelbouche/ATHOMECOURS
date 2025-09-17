@@ -1,8 +1,5 @@
 <?php
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+session_start();
 require_once __DIR__ . "/config.php";
 
 /** @var PDO $pdo */
@@ -37,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 exit;
             }
 
-            // Création de la session utilisateur
+
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["user_nom"] = $user["nom"];
             $_SESSION["user_prenom"] = $user["prenom"];

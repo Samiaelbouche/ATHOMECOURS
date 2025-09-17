@@ -17,10 +17,10 @@
                     <ul>
 
 
-                        <li><a href=""> Nos Cours</a></li>
-                        <li><a href="">Nos  Professeur(e)s</a></li>
-                        <li><a href="">Nos  Taris</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="../views/noscours.php"> Nos Cours</a></li>
+                        <li><a href="../views/nosprofesseurs.php">Nos  Professeur(e)s</a></li>
+                        <li><a href="../views/nostarifs.php">Nos  Taris</a></li>
+                        <li><a href="../views/noscontacts.php">Contact</a></li>
                     </ul>
                     <div class="boutonconnexion">
                         <?php if (isset($_SESSION['user'])): ?>

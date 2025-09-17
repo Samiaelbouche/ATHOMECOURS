@@ -1,3 +1,5 @@
+
+<?php include '../partial/header.php'; ?>
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -83,3 +85,5 @@ unset($_SESSION["error"], $_SESSION["success"]);
 
 </body>
 </html>
+
+<?php include '../partial/footer.php'; ?>
