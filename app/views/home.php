@@ -93,17 +93,17 @@
         <h2>Témoignages</h2>
         <div class="slider">
             <div class="slide active">
-                <img src="images/eleve1.jpg" alt="Élève">
+                <img src="" alt="Élève">
                 <p>"Super cours, j’ai beaucoup progressé !"</p>
                 <span>- Thomas</span>
             </div>
             <div class="slide">
-                <img src="images/eleve2.jpg" alt="Élève">
+                <img src="" alt="Élève">
                 <p>"Les profs sont très pédagogues."</p>
                 <span>- Julie</span>
             </div>
             <div class="slide">
-                <img src="images/eleve3.jpg" alt="Élève">
+                <img src="" alt="Élève">
                 <p>"Je recommande à 100%."</p>
                 <span>- Karim</span>
             </div>

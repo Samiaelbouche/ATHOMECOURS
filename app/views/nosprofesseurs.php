@@ -1,4 +1,4 @@
-<?php include 'partial/header.php'; ?>
+<?php include '../partial/header.php'; ?>
     <main>
         <section class="banner">
             <img src="../images/physique-chimie-prepa-mpsi.jpg" alt="Bannière" class="banner-img">
@@ -46,7 +46,7 @@
                     L’inscription se fait via notre formulaire dédié aux professeurs.
                     <strong>Un CV est obligatoire</strong> afin d’évaluer vos compétences et expériences.
                 </p>
-                <a href="inscription-prof.php" class="btn">Postuler comme professeur</a>
+                <a href="../views/inscriptionProfView.php" class="btn">Postuler comme professeur</a>
             </article>
         </section>
 

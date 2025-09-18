@@ -5,15 +5,17 @@ services:
     ports:
       - "8080:80"
     environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/views
+      - APACHE_DOCUMENT_ROOT=/var/www/
       - DB_HOST=mysql
       - DB_NAME=database
       - DB_USER=user
       - DB_PASS=password
     volumes:
-      - ./app:/var/www/views
+      - ./app:/var/www/
+      - ./config/custom.ini:/usr/local/etc/php/conf.d/custom.ini
     depends_on:
       - mysql
+      - mailhog
     restart: unless-stopped
 
   mysql:
@@ -44,6 +46,12 @@ services:
       - mysql
     restart: unless-stopped
 
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: unless-stopped
 
 volumes:
   mysql_data:

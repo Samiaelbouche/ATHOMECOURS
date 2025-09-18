@@ -16,7 +16,7 @@
 
 
     <section class="contact-form">
-        <section class="contact-form">
+
             <h2>Envoyer un message</h2>
 
             <?php
