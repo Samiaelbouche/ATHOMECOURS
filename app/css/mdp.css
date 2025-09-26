@@ -1,0 +1,100 @@
+
+:root {
+    --H: #ffffff;   /* Hydrogène - blanc */
+    --C: #111111;   /* Carbone - noir */
+    --N: #1565c0;   /* Azote - bleu */
+    --O: #b71c1c;   /* Oxygène - rouge */
+
+    --bg: var(--H);
+    --text: var(--C);
+    --shadow: 0 4px 14px rgba(0,0,0,.08);
+    --radius: 30px;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    color: var(--text);
+    background: var(--bg) url("../images/fond.jpg") no-repeat center/cover;
+    line-height: 1.6;
+}
+
+.mdp-oublie {
+    max-width: 400px;
+    margin: 40px auto;
+    background: var(--H);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+
+.mdp-error {
+    background: var(--H);
+    color: var(--O);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.mdp-success {
+    background: var(--H);
+    color:var(--N);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+.mdp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mdp-form input {
+    padding: 12px;
+    border: 1px solid var(--H);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.mdp-form input:focus {
+    border-color: var(--N);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,102,204,0.4);
+}
+
+.mdp-form button {
+    background: var(--N);
+    color: var(--H);
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.mdp-back {
+    margin-top: 20px;
+}
+
+.mdp-back a {
+    color: var(--N);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mdp-back a:hover {
+    text-decoration: underline;
+}

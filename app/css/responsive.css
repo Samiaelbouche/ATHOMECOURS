@@ -1,0 +1,129 @@
+@media (max-width: 992px) {
+    .banner-text h1 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content img {
+        max-width: 80%;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    .com {
+        flex-direction: column;
+    }
+
+    .com img,
+    .com div {
+        width: 100%;
+    }
+    .tarif-card {
+        flex: 1 1 calc(50% - 20px);
+    }
+    .admin-title {
+        font-size: 1.6rem;
+    }
+
+    .admin-login form {
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .banner {
+        height: 50vh;
+    }
+
+    .banner-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .banner-text p {
+        font-size: 1rem;
+    }
+
+    .cours-grid,
+    .prof-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cours-card,
+    .prof-card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .cards {
+        gap: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .prof-page,
+    .prof-criteria,
+    .prof-recruit,
+    .prof-value,
+    .prof-engagement {
+        padding: 25px 15px;
+    }
+
+    .prof-page h1 {
+        font-size: 2rem;
+    }
+    .tarif-card {
+        flex: 1 1 100%;
+    }
+    .contact-info,
+    .contact-form {
+        padding: 25px 15px;
+    }
+    .profil-choix {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .container {
+        padding: 25px 20px;
+    }
+
+    .container h1 {
+        font-size: 1.6rem;
+    }
+    .formeleve {
+        padding: 25px 20px;
+        gap: 15px;
+    }
+
+    .formeleve h3 {
+        font-size: 1.2rem;
+    }
+    .formprof {
+        padding: 25px 20px;
+        gap: 12px;
+    }
+    .merci-page {
+        margin: 40px 15px;
+        padding: 25px 20px;
+    }
+    .merci-page span {
+        font-size: 1rem;
+    }
+
+}
+
+
+
+
+
+

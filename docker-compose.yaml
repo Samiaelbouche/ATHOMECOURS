@@ -1,0 +1,60 @@
+services:
+
+  apache:
+    build: .
+    container_name: athomecours-apache-1
+    ports:
+      - "8080:80"
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/
+      - DB_HOST=mysql
+      - DB_NAME=athomecours
+      - DB_USER=user
+      - DB_PASS=password
+    volumes:
+      - .:/var/www
+      - ./config/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+    depends_on:
+      - mysql
+      - mailhog
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: athomecours-mysql-1
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./bdd:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=athomecours
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: athomecours-phpmyadmin-1
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=root_password
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: athomecours-mailhog-1
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
