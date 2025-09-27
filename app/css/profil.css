@@ -216,7 +216,16 @@ body {
     background: var(--H);
 }
 
+.formeleve .show-password {
+    display: flex;         /* active flexbox */
+    align-items: center;   /* centre verticalement */
+    justify-content: flex-start; /* colle tout à gauche */
+    margin-top: 10px;      /* espace avec le champ précédent */
+}
 
+.formeleve .show-password input[type="checkbox"] {
+    margin-right: 6px; /* espace entre la case et le texte */
+}
 /*  Admin*/
 
 

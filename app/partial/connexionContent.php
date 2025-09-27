@@ -32,8 +32,11 @@ unset($_SESSION["error"], $_SESSION["success"]);
                 <input type="email" id="email" name="email" required>
 
                 <label for="mot_de_passe">Mot de passe :</label>
-                <input type="password" id="mot_de_passe" name="mot_de_passe" required>
-
+                <input type="password" id="password"  name="mot_de_passe" required>
+                <div class="show-password">
+                    <input type="checkbox" id="show_pwd" aria-controls="password">
+                    <label for="show_pwd">Afficher le mot de passe</label>
+                </div>
                 <button type="submit">Se connecter</button>
             </form>
             <p class="forgot"><a href="../mdp/mdpoublie.php">Mot de passe oublié ?</a></p>

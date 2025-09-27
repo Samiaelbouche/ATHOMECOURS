@@ -118,4 +118,6 @@ if (!isset($template)) {
     <script src="../JS/partial.js"></script>
 
     <script src="../JS/home.js"></script>
+
+    <script src="../JS/mdp.js"></script>
 </html>

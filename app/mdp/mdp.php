@@ -1,23 +1,47 @@
 <?php
-require '../php/config.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . "/../php/config.php";
 
 /** @var PDO $pdo */
 
+// Récupération des paramètres GET
 $token = $_GET['token'] ?? '';
-$stmt = $pdo->prepare("SELECT * FROM password_resets WHERE token = :token AND used = 0 LIMIT 1");
-$stmt->execute([':token' => $token]);
+$email = $_GET['email'] ?? '';
+
+if (!$token || !$email) {
+    exit("Lien invalide.");
+}
+
+// On calcule le hash du token reçu
+$token_hash = hash("sha256", $token);
+
+// Vérification dans la base
+$stmt = $pdo->prepare("
+    SELECT * FROM password_resets 
+    WHERE email = :email AND token = :token AND used = 0 
+    LIMIT 1
+");
+$stmt->execute([
+    ":email" => $email,
+    ":token" => $token_hash
+]);
 $reset = $stmt->fetch();
 
-if (!$reset || new DateTime() > new DateTime($reset['expiration'])) {
-    exit("Lien invalide ou expiré.");
+if (!$reset) {
+    exit("Lien invalide.");
 }
-?>
+
+// Vérifie si le lien a expiré
+if (new DateTime() > new DateTime($reset["expiration"])) {
+    exit("Lien expiré.");
+}
+
+$template = __DIR__ . '/../partial/mdpmajContent.php';
 
 
-    <form action="mdpreset.php" method="post">
-        <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
-        <input type="password" name="password" placeholder="Nouveau mot de passe" required>
-        <input type="password" name="password_confirm" placeholder="Confirmer le mot de passe" required>
-        <button type="submit">Mettre à jour</button>
-    </form>
+include __DIR__ . '/../partial/layout.php';
+
 

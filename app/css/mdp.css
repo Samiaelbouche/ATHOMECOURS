@@ -98,3 +98,22 @@ body {
 .mdp-back a:hover {
     text-decoration: underline;
 }
+
+.containerreset {
+
+    max-width: 400px;
+    margin: 40px auto;
+    background: var(--H);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+
+.mdp-form label {
+    padding: 12px;
+    border: 1px solid var(--N);
+    font-weight: bold;
+
+}
